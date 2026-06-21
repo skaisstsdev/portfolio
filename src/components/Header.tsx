@@ -63,19 +63,19 @@ export default function Header() {
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
-            className="absolute top-full left-0 w-full bg-black/95 backdrop-blur-xl border-b border-white/10 md:hidden shadow-2xl"
+            initial={{ opacity: 0, backdropFilter: 'blur(0px)' }}
+            animate={{ opacity: 1, backdropFilter: 'blur(16px)' }}
+            exit={{ opacity: 0, backdropFilter: 'blur(0px)' }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
+            className="fixed inset-0 z-40 flex flex-col items-center justify-center bg-black/90 md:hidden h-screen w-screen"
           >
-            <nav className="flex flex-col items-center py-8 gap-8 text-sm uppercase tracking-widest text-white/60">
+            <nav className="flex flex-col items-center gap-12 text-xl font-light uppercase tracking-widest text-white/80">
               {navLinks.map((link) => (
                 <a 
                   key={link.name} 
                   href={link.href} 
                   onClick={() => setMobileMenuOpen(false)}
-                  className="hover:text-white transition-colors w-full text-center py-2"
+                  className="hover:text-white transition-colors"
                 >
                   {link.name}
                 </a>

@@ -9,7 +9,12 @@ import { useTranslation } from 'react-i18next';
 export default function KSKFarmos() {
   const { t } = useTranslation();
   const [openIndex, setOpenIndex] = useState<number | null>(0);
-  const [device, setDevice] = useState<'desktop' | 'mobile'>('desktop');
+  const [device, setDevice] = useState<'desktop' | 'mobile'>(() => {
+    if (typeof window !== 'undefined') {
+      return window.innerWidth < 768 ? 'mobile' : 'desktop';
+    }
+    return 'desktop';
+  });
   const [currentDesktopIndex, setCurrentDesktopIndex] = useState(0);
   const [currentMobileIndex, setCurrentMobileIndex] = useState(0);
 
