@@ -29,19 +29,22 @@ export default function MatchaMatcha() {
     }
   }, [device]);
 
-  const images = [
-    '/img/matchamatcha/desktop/1_main_page_hero.webp',
-    '/img/matchamatcha/desktop/2_main_page.webp',
-    '/img/matchamatcha/desktop/3_menu.webp',
-    '/img/matchamatcha/desktop/4_variants.webp',
-    '/img/matchamatcha/desktop/5_contacts.webp',
+  const desktopImages = [
+    "/img/matchamatcha/desktop/1_main_page_hero.webp",
+    "/img/matchamatcha/desktop/2_main_page.webp",
+    "/img/matchamatcha/desktop/3_menu.webp",
+    "/img/matchamatcha/desktop/4_variants.webp",
+    "/img/matchamatcha/desktop/5_contacts.webp"
   ];
 
   const mobileImages = [
-    '/img/matchamatcha/mobile/1_main_page_hero.webp',
-    '/img/matchamatcha/mobile/2_main_page.webp',
-    '/img/matchamatcha/mobile/3_menu.webp',
-    '/img/matchamatcha/mobile/5_variants.webp',
+    "/img/matchamatcha/mobile/1_main_page_hero.webp",
+    "/img/matchamatcha/mobile/2_main_page.webp",
+    "/img/matchamatcha/mobile/3_menu.webp",
+    "/img/matchamatcha/mobile/4_menu.webp",
+    "/img/matchamatcha/mobile/5_variants.webp",
+    "/img/matchamatcha/mobile/6_contacts.webp",
+    "/img/matchamatcha/mobile/7_menu_bar.webp"
   ];
 
   const galleryImages = [
@@ -54,10 +57,10 @@ export default function MatchaMatcha() {
   ];
 
   const handleNextDesktop = () => {
-    setCurrentDesktopIndex((prev) => (prev + 1) % images.length);
+    setCurrentDesktopIndex((prev) => (prev + 1) % desktopImages.length);
   };
   const handlePrevDesktop = () => {
-    setCurrentDesktopIndex((prev) => (prev - 1 + images.length) % images.length);
+    setCurrentDesktopIndex((prev) => (prev - 1 + desktopImages.length) % desktopImages.length);
   };
 
   const handleNextMobile = () => {
@@ -94,12 +97,14 @@ export default function MatchaMatcha() {
                 Matcha Matcha
               </h2>
               <p className="mt-4 text-white/60 uppercase tracking-widest text-sm md:text-base">
-                Specialty Cafe Chain
+                E-Commerce Store
               </p>
             </>
           }
         >
-          <img src={images[0]} alt="Matcha Matcha Desktop Hero" className="w-full h-full object-cover object-top rounded-lg md:rounded-2xl" />
+          {desktopImages.map((src: string, i: number) => (
+            <img key={i} src={src} alt={`Desktop screenshot ${i}`} className="w-full h-full object-cover object-top shrink-0" />
+          ))}
         </ContainerScroll>
 
         {/* Project Details & Link */}
@@ -208,7 +213,7 @@ export default function MatchaMatcha() {
             <div className="w-full relative flex flex-col items-center">
               <LaptopFrame>
                 <div className="relative w-full h-full bg-black">
-                  {images.map((src, i) => (
+                  {desktopImages.map((src, i) => (
                     <img
                       key={i}
                       src={src}

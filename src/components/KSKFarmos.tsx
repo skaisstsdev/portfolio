@@ -29,19 +29,38 @@ export default function KSKFarmos() {
     }
   }, [device]);
 
-  const images = [
-    '/img/ksk/desktop/1_main_page_hero.webp',
-    '/img/ksk/desktop/2_main_page.webp',
-    '/img/ksk/desktop/3_main_page.webp',
-    '/img/ksk/desktop/4_services.webp',
-    '/img/ksk/desktop/6_about_us_hero.webp',
+  const desktopImages = [
+    "/img/ksk/desktop/1_main_page_hero.webp",
+    "/img/ksk/desktop/2_main_page.webp",
+    "/img/ksk/desktop/3_main_page.webp",
+    "/img/ksk/desktop/4_services.webp",
+    "/img/ksk/desktop/5_footer.webp",
+    "/img/ksk/desktop/6_about_us_hero.webp",
+    "/img/ksk/desktop/7_jobs.webp",
+    "/img/ksk/desktop/8_jobs.webp",
+    "/img/ksk/desktop/10_faq.webp",
+    "/img/ksk/desktop/11_form.webp",
+    "/img/ksk/desktop/12_chat_bot.webp",
+    "/img/ksk/desktop/14_chat_bot.webp",
+    "/img/ksk/desktop/15_jobs_form.webp",
+    "/img/ksk/desktop/16_language_switch.webp",
+    "/img/ksk/desktop/17_admin.webp"
   ];
 
   const mobileImages = [
-    '/img/ksk/mobile/1_main_page_hero.webp',
-    '/img/ksk/mobile/2_main_hero.webp',
-    '/img/ksk/mobile/4_services.webp',
-    '/img/ksk/mobile/7_menu.webp',
+    "/img/ksk/mobile/1_main_page_hero.webp",
+    "/img/ksk/mobile/2_main_hero.webp",
+    "/img/ksk/mobile/3_main_hero.webp",
+    "/img/ksk/mobile/4_services.webp",
+    "/img/ksk/mobile/5_about_us.webp",
+    "/img/ksk/mobile/6_cta.webp",
+    "/img/ksk/mobile/7_menu.webp",
+    "/img/ksk/mobile/8_services.webp",
+    "/img/ksk/mobile/9_footer.webp",
+    "/img/ksk/mobile/10_about_us.webp",
+    "/img/ksk/mobile/11_social_network.webp",
+    "/img/ksk/mobile/12_jobs.webp",
+    "/img/ksk/mobile/13_chat_bot.webp"
   ];
 
   const galleryImages = [
@@ -54,10 +73,10 @@ export default function KSKFarmos() {
   ];
 
   const handleNextDesktop = () => {
-    setCurrentDesktopIndex((prev) => (prev + 1) % images.length);
+    setCurrentDesktopIndex((prev) => (prev + 1) % desktopImages.length);
   };
   const handlePrevDesktop = () => {
-    setCurrentDesktopIndex((prev) => (prev - 1 + images.length) % images.length);
+    setCurrentDesktopIndex((prev) => (prev - 1 + desktopImages.length) % desktopImages.length);
   };
 
   const handleNextMobile = () => {
@@ -99,7 +118,9 @@ export default function KSKFarmos() {
             </>
           }
         >
-          <img src={images[0]} alt="KSK Farmos Desktop Hero" className="w-full h-full object-cover object-top rounded-lg md:rounded-2xl" />
+          {desktopImages.map((src: string, i: number) => (
+            <img key={i} src={src} alt={`Desktop screenshot ${i}`} className="w-full h-full object-cover object-top shrink-0" />
+          ))}
         </ContainerScroll>
 
         {/* Project Details & Link */}
@@ -208,7 +229,7 @@ export default function KSKFarmos() {
             <div className="w-full relative flex flex-col items-center">
               <LaptopFrame>
                 <div className="relative w-full h-full bg-black">
-                  {images.map((src, i) => (
+                  {desktopImages.map((src, i) => (
                     <img
                       key={i}
                       src={src}

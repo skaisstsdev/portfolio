@@ -29,18 +29,29 @@ export default function BeautyGlanz() {
     }
   }, [device]);
 
-  const images = [
-    '/img/beuatyglanz/desktop/1_main_page_hero.webp',
-    '/img/beuatyglanz/desktop/2_main_page.webp',
-    '/img/beuatyglanz/desktop/3_services.webp',
-    '/img/beuatyglanz/desktop/4_contacts.webp',
+  const desktopImages = [
+    "/img/beuatyglanz/desktop/1_main_page_hero.webp",
+    "/img/beuatyglanz/desktop/2_main_page.webp",
+    "/img/beuatyglanz/desktop/3_services.webp",
+    "/img/beuatyglanz/desktop/4_contacts.webp",
+    "/img/beuatyglanz/desktop/5_admin.webp",
+    "/img/beuatyglanz/desktop/6_admin.webp",
+    "/img/beuatyglanz/desktop/7_admin.webp",
+    "/img/beuatyglanz/desktop/8_admin.webp"
   ];
 
   const mobileImages = [
-    '/img/beuatyglanz/mobile/1_main_page_hero.webp',
-    '/img/beuatyglanz/mobile/2_main_page.webp',
-    '/img/beuatyglanz/mobile/3_services.webp',
-    '/img/beuatyglanz/mobile/4_termin.webp',
+    "/img/beuatyglanz/mobile/1_main_page_hero.webp",
+    "/img/beuatyglanz/mobile/2_main_page.webp",
+    "/img/beuatyglanz/mobile/3_services.webp",
+    "/img/beuatyglanz/mobile/4_termin.webp",
+    "/img/beuatyglanz/mobile/5_termin.webp",
+    "/img/beuatyglanz/mobile/6_termin.webp",
+    "/img/beuatyglanz/mobile/7_admin.webp",
+    "/img/beuatyglanz/mobile/8_admin.webp",
+    "/img/beuatyglanz/mobile/9_admin.webp",
+    "/img/beuatyglanz/mobile/10_admin.webp",
+    "/img/beuatyglanz/mobile/11_admin.webp"
   ];
 
   const galleryImages = [
@@ -53,10 +64,10 @@ export default function BeautyGlanz() {
   ];
 
   const handleNextDesktop = () => {
-    setCurrentDesktopIndex((prev) => (prev + 1) % images.length);
+    setCurrentDesktopIndex((prev) => (prev + 1) % desktopImages.length);
   };
   const handlePrevDesktop = () => {
-    setCurrentDesktopIndex((prev) => (prev - 1 + images.length) % images.length);
+    setCurrentDesktopIndex((prev) => (prev - 1 + desktopImages.length) % desktopImages.length);
   };
 
   const handleNextMobile = () => {
@@ -93,12 +104,14 @@ export default function BeautyGlanz() {
                 Beauty Glanz
               </h2>
               <p className="mt-4 text-white/60 uppercase tracking-widest text-sm md:text-base">
-                Salon Booking System
+                Premium Cleaning Service
               </p>
             </>
           }
         >
-          <img src={images[0]} alt="Beauty Glanz Desktop Hero" className="w-full h-full object-cover object-top rounded-lg md:rounded-2xl" />
+          {desktopImages.map((src: string, i: number) => (
+            <img key={i} src={src} alt={`Desktop screenshot ${i}`} className="w-full h-full object-cover object-top shrink-0" />
+          ))}
         </ContainerScroll>
 
         {/* Project Details & Link */}
@@ -207,7 +220,7 @@ export default function BeautyGlanz() {
             <div className="w-full relative flex flex-col items-center">
               <LaptopFrame>
                 <div className="relative w-full h-full bg-black">
-                  {images.map((src, i) => (
+                  {desktopImages.map((src, i) => (
                     <img
                       key={i}
                       src={src}
