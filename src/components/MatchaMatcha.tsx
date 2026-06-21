@@ -30,21 +30,21 @@ export default function MatchaMatcha() {
   }, [device]);
 
   const desktopImages = [
-    "/img/matchamatcha/desktop/1_main_page_hero.png",
-    "/img/matchamatcha/desktop/2_main_page.png",
-    "/img/matchamatcha/desktop/3_menu.png",
-    "/img/matchamatcha/desktop/4_variants.png",
-    "/img/matchamatcha/desktop/5_contacts.png"
+    "/img/matchamatcha/desktop/1_main_page_hero.webp",
+    "/img/matchamatcha/desktop/2_main_page.webp",
+    "/img/matchamatcha/desktop/3_menu.webp",
+    "/img/matchamatcha/desktop/4_variants.webp",
+    "/img/matchamatcha/desktop/5_contacts.webp"
   ];
 
   const mobileImages = [
-    "/img/matchamatcha/mobile/1_main_page_hero.jpg",
-    "/img/matchamatcha/mobile/2_main_page.jpg",
-    "/img/matchamatcha/mobile/3_menu.jpg",
-    "/img/matchamatcha/mobile/4_menu.jpg",
-    "/img/matchamatcha/mobile/5_variants.jpg",
-    "/img/matchamatcha/mobile/6_contacts.jpg",
-    "/img/matchamatcha/mobile/7_menu_bar.jpg"
+    "/img/matchamatcha/mobile/1_main_page_hero.webp",
+    "/img/matchamatcha/mobile/2_main_page.webp",
+    "/img/matchamatcha/mobile/3_menu.webp",
+    "/img/matchamatcha/mobile/4_menu.webp",
+    "/img/matchamatcha/mobile/5_variants.webp",
+    "/img/matchamatcha/mobile/6_contacts.webp",
+    "/img/matchamatcha/mobile/7_menu_bar.webp"
   ];
 
   const galleryImages = [

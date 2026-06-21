@@ -30,28 +30,28 @@ export default function KSKFarmos() {
   }, [device]);
 
   const desktopImages = [
-    "/img/ksk/desktop/1_main_page_hero.png",
-    "/img/ksk/desktop/3_main_page.png",
-    "/img/ksk/desktop/4_services.png",
-    "/img/ksk/desktop/6_about_us_hero.png",
-    "/img/ksk/desktop/7_jobs.png",
-    "/img/ksk/desktop/8_jobs.png",
-    "/img/ksk/desktop/10_faq.png",
-    "/img/ksk/desktop/11_form.png",
-    "/img/ksk/desktop/15_jobs_form.png"
+    "/img/ksk/desktop/1_main_page_hero.webp",
+    "/img/ksk/desktop/3_main_page.webp",
+    "/img/ksk/desktop/4_services.webp",
+    "/img/ksk/desktop/6_about_us_hero.webp",
+    "/img/ksk/desktop/7_jobs.webp",
+    "/img/ksk/desktop/8_jobs.webp",
+    "/img/ksk/desktop/10_faq.webp",
+    "/img/ksk/desktop/11_form.webp",
+    "/img/ksk/desktop/15_jobs_form.webp"
   ];
 
   const mobileImages = [
-    "/img/ksk/mobile/1_main_page_hero.jpg",
-    "/img/ksk/mobile/2_main_hero.jpg",
-    "/img/ksk/mobile/3_main_hero.jpg",
-    "/img/ksk/mobile/4_services.jpg",
-    "/img/ksk/mobile/5_about_us.jpg",
-    "/img/ksk/mobile/6_cta.jpg",
-    "/img/ksk/mobile/7_menu.jpg",
-    "/img/ksk/mobile/8_services.jpg",
-    "/img/ksk/mobile/12_jobs.jpg",
-    "/img/ksk/mobile/13_chat_bot.jpg"
+    "/img/ksk/mobile/1_main_page_hero.webp",
+    "/img/ksk/mobile/2_main_hero.webp",
+    "/img/ksk/mobile/3_main_hero.webp",
+    "/img/ksk/mobile/4_services.webp",
+    "/img/ksk/mobile/5_about_us.webp",
+    "/img/ksk/mobile/6_cta.webp",
+    "/img/ksk/mobile/7_menu.webp",
+    "/img/ksk/mobile/8_services.webp",
+    "/img/ksk/mobile/12_jobs.webp",
+    "/img/ksk/mobile/13_chat_bot.webp"
   ];
 
   const galleryImages = [
