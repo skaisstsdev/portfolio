@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { ExternalLink, ChevronDown, Monitor, Smartphone } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { InfiniteGallery } from './ui/3d-gallery-photography';
 import { LaptopFrame, MobileFrame } from './ui/DeviceFrames';
 import { ContainerScroll } from './ui/container-scroll-animation';
 import { useTranslation } from 'react-i18next';
@@ -61,15 +60,6 @@ export default function KSKFarmos() {
     "/img/ksk/mobile/13_chat_bot.webp"
   ];
 
-  const galleryImages = [
-    { src: '/img/ksk/desktop/1_main_page_hero.webp', alt: 'Hero' },
-    { src: '/img/ksk/desktop/4_services.webp', alt: 'Services' },
-    { src: '/img/ksk/desktop/6_about_us_hero.webp', alt: 'About' },
-    { src: '/img/ksk/desktop/1_main_page_hero.webp', alt: 'Hero' },
-    { src: '/img/ksk/desktop/4_services.webp', alt: 'Services' },
-    { src: '/img/ksk/desktop/6_about_us_hero.webp', alt: 'About' },
-  ];
-
   const handleNextDesktop = () => {
     setCurrentDesktopIndex((prev) => (prev + 1) % desktopImages.length);
   };
@@ -117,7 +107,7 @@ export default function KSKFarmos() {
           }
         >
           {desktopImages.map((src: string, i: number) => (
-            <img key={i} src={src} alt={`Desktop screenshot ${i}`} className="w-full h-full object-cover object-top shrink-0" />
+            <img key={i} src={src} alt={`Desktop screenshot ${i}`} loading="lazy" decoding="async" className="w-full h-full object-cover object-top shrink-0" />
           ))}
         </ContainerScroll>
 

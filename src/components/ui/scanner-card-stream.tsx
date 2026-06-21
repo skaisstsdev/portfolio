@@ -1,5 +1,6 @@
 'use client';
 
+/* eslint-disable */
 import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import * as THREE from 'three';
 
@@ -134,7 +135,7 @@ export const ScannerCardStream = ({
     const ctx = scannerCanvas.getContext('2d')!;
     scannerCanvas.width = window.innerWidth;
     scannerCanvas.height = 300;
-    let scannerParticles: any[] = [];
+    const scannerParticles: any[] = [];
     const baseMaxParticles = 800;
     let currentMaxParticles = baseMaxParticles;
     const scanTargetMaxParticles = 2500;

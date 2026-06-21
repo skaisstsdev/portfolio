@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { ExternalLink, ChevronDown, Monitor, Smartphone } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { InfiniteGallery } from './ui/3d-gallery-photography';
 import { LaptopFrame, MobileFrame } from './ui/DeviceFrames';
 import { ContainerScroll } from './ui/container-scroll-animation';
 import { useTranslation } from 'react-i18next';
@@ -51,15 +50,6 @@ export default function BeautyGlanz() {
     "/img/beuatyglanz/mobile/6_termin.webp"
   ];
 
-  const galleryImages = [
-    { src: '/img/beuatyglanz/desktop/1_main_page_hero.webp', alt: 'Hero' },
-    { src: '/img/beuatyglanz/desktop/2_main_page.webp', alt: 'Main Page' },
-    { src: '/img/beuatyglanz/desktop/3_services.webp', alt: 'Services' },
-    { src: '/img/beuatyglanz/desktop/1_main_page_hero.webp', alt: 'Hero' },
-    { src: '/img/beuatyglanz/desktop/2_main_page.webp', alt: 'Main Page' },
-    { src: '/img/beuatyglanz/desktop/3_services.webp', alt: 'Services' },
-  ];
-
   const handleNextDesktop = () => {
     setCurrentDesktopIndex((prev) => (prev + 1) % desktopImages.length);
   };
@@ -107,7 +97,7 @@ export default function BeautyGlanz() {
           }
         >
           {desktopImages.map((src: string, i: number) => (
-            <img key={i} src={src} alt={`Desktop screenshot ${i}`} className="w-full h-full object-cover object-top shrink-0" />
+            <img key={i} src={src} alt={`Desktop screenshot ${i}`} loading="lazy" decoding="async" className="w-full h-full object-cover object-top shrink-0" />
           ))}
         </ContainerScroll>
 
