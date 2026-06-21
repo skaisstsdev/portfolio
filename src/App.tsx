@@ -5,6 +5,8 @@ import Hero from './components/Hero';
 import KSKFarmos from './components/KSKFarmos';
 import MatchaMatcha from './components/MatchaMatcha';
 import BeautyGlanz from './components/BeautyGlanz';
+import Intro from './components/Intro';
+import ProjectDivider from './components/ui/ProjectDivider';
 import { MeshGradient } from '@paper-design/shaders-react';
 
 function App() {
@@ -45,9 +47,12 @@ function App() {
 
       <Header />
       <Hero />
-      <div className="flex flex-col gap-12 md:gap-24 relative z-10">
+      <Intro />
+      <div className="flex flex-col relative z-10">
         <KSKFarmos />
+        <ProjectDivider />
         <BeautyGlanz />
+        <ProjectDivider />
         <MatchaMatcha />
       </div>
       
