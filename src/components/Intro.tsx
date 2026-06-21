@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 export default function Intro() {
   return (
-    <section className="relative z-10 w-full py-24 md:py-32 flex justify-center items-center px-6">
+    <section id="about" className="relative z-10 w-full py-24 md:py-32 flex justify-center items-center px-6">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
