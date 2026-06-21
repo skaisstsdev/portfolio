@@ -63,6 +63,66 @@ export default function MatchaMatcha() {
     }
   ];
 
+  const desktopView = (
+    <div className="w-full relative flex flex-col items-center">
+      <LaptopFrame>
+        <div className="relative w-full h-full bg-black">
+          {images.map((src, i) => (
+            <img
+              key={i}
+              src={src}
+              alt={`Screenshot ${i + 1}`}
+              className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-500 ease-in-out ${
+                i === currentDesktopIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
+              }`}
+            />
+          ))}
+        </div>
+      </LaptopFrame>
+      <button 
+        onClick={handlePrevDesktop} 
+        className="hidden md:block absolute left-[-20px] md:left-[-40px] xl:left-[-60px] top-1/2 -translate-y-1/2 z-20 p-4 bg-black/50 backdrop-blur-md rounded-full border border-white/10 text-white hover:bg-white hover:text-black transition-colors"
+      >
+        ←
+      </button>
+      <button 
+        onClick={handleNextDesktop} 
+        className="hidden md:block absolute right-[-20px] md:right-[-40px] xl:right-[-60px] top-1/2 -translate-y-1/2 z-20 p-4 bg-black/50 backdrop-blur-md rounded-full border border-white/10 text-white hover:bg-white hover:text-black transition-colors"
+      >
+        →
+      </button>
+      
+      <div className="flex gap-4 mt-8 md:hidden">
+        <button onClick={handlePrevDesktop} className="p-4 bg-white/5 border border-white/10 rounded-full hover:bg-white hover:text-black transition-colors text-white">←</button>
+        <button onClick={handleNextDesktop} className="p-4 bg-white/5 border border-white/10 rounded-full hover:bg-white hover:text-black transition-colors text-white">→</button>
+      </div>
+    </div>
+  );
+
+  const mobileView = (
+    <div className="w-full max-w-[260px] md:max-w-[380px] relative flex flex-col items-center mx-auto">
+      <MobileFrame images={mobileImages} currentIndex={currentMobileIndex} />
+      
+      <button 
+        onClick={handlePrevMobile} 
+        className="hidden md:block absolute left-[-20px] md:left-[-60px] xl:left-[-80px] top-1/2 -translate-y-1/2 z-20 p-4 bg-black/50 backdrop-blur-md rounded-full border border-white/10 text-white hover:bg-white hover:text-black transition-colors"
+      >
+        ←
+      </button>
+      <button 
+        onClick={handleNextMobile} 
+        className="hidden md:block absolute right-[-20px] md:right-[-60px] xl:right-[-80px] top-1/2 -translate-y-1/2 z-20 p-4 bg-black/50 backdrop-blur-md rounded-full border border-white/10 text-white hover:bg-white hover:text-black transition-colors"
+      >
+        →
+      </button>
+      
+      <div className="flex gap-4 mt-8 md:hidden">
+        <button onClick={handlePrevMobile} className="p-4 bg-white/5 border border-white/10 rounded-full hover:bg-white hover:text-black transition-colors text-white">←</button>
+        <button onClick={handleNextMobile} className="p-4 bg-white/5 border border-white/10 rounded-full hover:bg-white hover:text-black transition-colors text-white">→</button>
+      </div>
+    </div>
+  );
+
   return (
     <section className="relative w-full py-24 bg-transparent border-t border-white/5 pb-48">
       <div className="container mx-auto px-6">
@@ -147,7 +207,8 @@ export default function MatchaMatcha() {
         </div>
 
         {/* Device Toggle */}
-        <div className="flex justify-center mb-12">
+        {/* Device Switcher - Desktop Only */}
+        <div className="hidden md:flex justify-center mb-12">
           <div className="flex p-1 bg-white/5 backdrop-blur-xl rounded-full border border-white/10">
             <button
               onClick={() => setDevice('desktop')}
@@ -169,64 +230,23 @@ export default function MatchaMatcha() {
         </div>
 
         {/* Device Showcase */}
-        <div className="max-w-6xl mx-auto flex justify-center items-center">
-          {device === 'desktop' ? (
-            <div className="w-full relative flex flex-col items-center">
-              <LaptopFrame>
-                <div className="relative w-full h-full bg-black">
-                  {images.map((src, i) => (
-                    <img
-                      key={i}
-                      src={src}
-                      alt={`Screenshot ${i + 1}`}
-                      className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-500 ease-in-out ${
-                        i === currentDesktopIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
-                      }`}
-                    />
-                  ))}
-                </div>
-              </LaptopFrame>
-              <button 
-                onClick={handlePrevDesktop} 
-                className="hidden md:block absolute left-[-20px] md:left-[-40px] xl:left-[-60px] top-1/2 -translate-y-1/2 z-20 p-4 bg-black/50 backdrop-blur-md rounded-full border border-white/10 text-white hover:bg-white hover:text-black transition-colors"
-              >
-                ←
-              </button>
-              <button 
-                onClick={handleNextDesktop} 
-                className="hidden md:block absolute right-[-20px] md:right-[-40px] xl:right-[-60px] top-1/2 -translate-y-1/2 z-20 p-4 bg-black/50 backdrop-blur-md rounded-full border border-white/10 text-white hover:bg-white hover:text-black transition-colors"
-              >
-                →
-              </button>
-              
-              <div className="flex gap-4 mt-8 md:hidden">
-                <button onClick={handlePrevDesktop} className="p-4 bg-white/5 border border-white/10 rounded-full hover:bg-white hover:text-black transition-colors text-white">←</button>
-                <button onClick={handleNextDesktop} className="p-4 bg-white/5 border border-white/10 rounded-full hover:bg-white hover:text-black transition-colors text-white">→</button>
-              </div>
+        <div className="max-w-6xl mx-auto flex-col items-center">
+          {/* Desktop Layout */}
+          <div className="hidden md:flex justify-center w-full">
+            {device === 'desktop' ? desktopView : mobileView}
+          </div>
+
+          {/* Mobile Layout */}
+          <div className="flex md:hidden flex-col gap-24 w-full items-center px-4 mt-12">
+            <div className="w-full flex flex-col items-center">
+              <h3 className="text-2xl font-semibold text-white mb-8 tracking-wide uppercase">Mobile</h3>
+              {mobileView}
             </div>
-          ) : (
-            <div className="w-full max-w-[260px] md:max-w-[380px] relative flex flex-col items-center mx-auto">
-              <MobileFrame images={mobileImages} currentIndex={currentMobileIndex} />
-              
-              <button 
-                onClick={handlePrevMobile} 
-                className="hidden md:block absolute left-[-20px] md:left-[-60px] xl:left-[-80px] top-1/2 -translate-y-1/2 z-20 p-4 bg-black/50 backdrop-blur-md rounded-full border border-white/10 text-white hover:bg-white hover:text-black transition-colors"
-              >
-                ←
-              </button>
-              <button 
-                onClick={handleNextMobile} 
-                className="hidden md:block absolute right-[-20px] md:right-[-60px] xl:right-[-80px] top-1/2 -translate-y-1/2 z-20 p-4 bg-black/50 backdrop-blur-md rounded-full border border-white/10 text-white hover:bg-white hover:text-black transition-colors"
-              >
-                →
-              </button>
-              
-              <div className="flex gap-4 mt-8 md:hidden">
-                <button onClick={handlePrevMobile} className="p-4 bg-white/5 border border-white/10 rounded-full hover:bg-white hover:text-black transition-colors text-white">←</button>
-                <button onClick={handleNextMobile} className="p-4 bg-white/5 border border-white/10 rounded-full hover:bg-white hover:text-black transition-colors text-white">→</button>
-              </div>
+            <div className="w-full flex flex-col items-center">
+              <h3 className="text-2xl font-semibold text-white mb-8 tracking-wide uppercase">Desktop</h3>
+              {desktopView}
             </div>
-          )}
+          </div>
         </div>
 
       </div>
