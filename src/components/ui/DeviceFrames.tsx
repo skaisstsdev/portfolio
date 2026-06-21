@@ -4,15 +4,15 @@ export const LaptopFrame = ({ children }: { children: ReactNode }) => {
   return (
     <div className="relative mx-auto w-full max-w-5xl px-4 md:px-0">
       {/* Screen */}
-      <div className="relative border-[#444] border-[10px] md:border-[16px] rounded-t-2xl md:rounded-t-3xl overflow-hidden bg-black aspect-[16/10] shadow-2xl">
+      <div className="relative border-[#111] border-[10px] md:border-[16px] rounded-xl md:rounded-t-3xl md:rounded-b-none overflow-hidden bg-black aspect-[16/10] shadow-2xl">
         <div className="absolute inset-0 overflow-y-auto overflow-x-hidden no-scrollbar">
           {children}
         </div>
       </div>
       {/* Base */}
-      <div className="relative w-[105%] md:w-[110%] -ml-[2.5%] md:-ml-[5%] h-3 md:h-5 bg-[#555] rounded-b-xl md:rounded-b-2xl shadow-xl flex justify-center border-t border-[#666]">
+      <div className="hidden md:flex relative w-[110%] -ml-[5%] h-5 bg-[#222] rounded-b-2xl shadow-xl justify-center border-t border-[#333]">
         {/* Finger notch */}
-        <div className="w-16 md:w-24 h-1 md:h-2 bg-[#444] rounded-b-md"></div>
+        <div className="w-24 h-2 bg-[#111] rounded-b-md"></div>
       </div>
     </div>
   );
@@ -31,7 +31,7 @@ export const TabletFrame = ({ children }: { children: ReactNode }) => {
 
 export const MobileFrame = ({ images, currentIndex }: { images: string[], currentIndex: number }) => {
   return (
-    <div className="relative mx-auto border-[#444] border-[10px] md:border-[14px] rounded-[2.5rem] md:rounded-[3rem] w-full bg-black shadow-2xl overflow-hidden" style={{ aspectRatio: '1170/1988' }}>
+    <div className="relative mx-auto border-[#111] border-[10px] md:border-[14px] rounded-[2.5rem] md:rounded-[3rem] w-full bg-black shadow-2xl overflow-hidden" style={{ aspectRatio: '1170/1988' }}>
       
       {/* Screen Content */}
       {images.map((src, i) => (

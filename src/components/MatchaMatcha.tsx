@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { ExternalLink, ChevronDown, Monitor, Smartphone } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { InfiniteGallery } from './ui/3d-gallery-photography';
 import { LaptopFrame, MobileFrame } from './ui/DeviceFrames';
 import { ContainerScroll } from './ui/container-scroll-animation';
@@ -9,6 +10,20 @@ export default function MatchaMatcha() {
   const [device, setDevice] = useState<'desktop' | 'mobile'>('desktop');
   const [currentDesktopIndex, setCurrentDesktopIndex] = useState(0);
   const [currentMobileIndex, setCurrentMobileIndex] = useState(0);
+
+  const showcaseRef = useRef<HTMLDivElement>(null);
+  const isInitialMount = useRef(true);
+
+  useEffect(() => {
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+      return;
+    }
+    
+    if (window.innerWidth < 768 && showcaseRef.current) {
+      showcaseRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }, [device]);
 
   const images = [
     '/img/matchamatcha/desktop/1_main_page_hero.webp',
@@ -148,29 +163,44 @@ export default function MatchaMatcha() {
 
         {/* Device Toggle */}
         <div className="flex justify-center mb-12">
-          <div className="flex p-1 bg-white/5 backdrop-blur-xl rounded-full border border-white/10">
+          <div className="flex p-1 bg-[#111]/80 backdrop-blur-xl rounded-full border border-white/10 flex-row-reverse md:flex-row relative">
             <button
               onClick={() => setDevice('desktop')}
-              className={`flex items-center gap-2 px-6 py-3 rounded-full text-sm uppercase tracking-widest transition-all ${
-                device === 'desktop' ? 'bg-white text-black' : 'text-white/50 hover:text-white'
+              className={`relative z-10 flex items-center gap-2 px-6 py-3 rounded-full text-sm uppercase tracking-widest transition-colors ${
+                device === 'desktop' ? 'text-black' : 'text-white/50 hover:text-white'
               }`}
             >
+              {device === 'desktop' && (
+                <motion.div layoutId="pill-matcha" className="absolute inset-0 bg-white rounded-full z-[-1]" />
+              )}
               <Monitor size={16} /> Desktop
             </button>
             <button
               onClick={() => setDevice('mobile')}
-              className={`flex items-center gap-2 px-6 py-3 rounded-full text-sm uppercase tracking-widest transition-all ${
-                device === 'mobile' ? 'bg-white text-black' : 'text-white/50 hover:text-white'
+              className={`relative z-10 flex items-center gap-2 px-6 py-3 rounded-full text-sm uppercase tracking-widest transition-colors ${
+                device === 'mobile' ? 'text-black' : 'text-white/50 hover:text-white'
               }`}
             >
+              {device === 'mobile' && (
+                <motion.div layoutId="pill-matcha" className="absolute inset-0 bg-white rounded-full z-[-1]" />
+              )}
               <Smartphone size={16} /> Mobile
             </button>
           </div>
         </div>
 
         {/* Device Showcase */}
-        <div className="max-w-6xl mx-auto flex justify-center items-center">
-          {device === 'desktop' ? (
+        <div ref={showcaseRef} className="max-w-6xl mx-auto flex justify-center items-center">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={device}
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -15 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="w-full flex justify-center"
+            >
+              {device === 'desktop' ? (
             <div className="w-full relative flex flex-col items-center">
               <LaptopFrame>
                 <div className="relative w-full h-full bg-black">
@@ -227,6 +257,8 @@ export default function MatchaMatcha() {
               </div>
             </div>
           )}
+            </motion.div>
+          </AnimatePresence>
         </div>
 
       </div>

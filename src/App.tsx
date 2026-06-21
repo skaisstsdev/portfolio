@@ -45,7 +45,7 @@ function App() {
 
       <Header />
       <Hero />
-      <div className="flex flex-col gap-24 relative z-10">
+      <div className="flex flex-col gap-12 md:gap-24 relative z-10">
         <KSKFarmos />
         <BeautyGlanz />
         <MatchaMatcha />
