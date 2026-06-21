@@ -80,8 +80,8 @@ function App() {
         </h2>
         <div className="flex justify-center gap-8 text-sm uppercase tracking-widest opacity-70">
           <a href="mailto:nikolayevignat.work@gmail.com" className="hover:text-white transition-colors border-b border-transparent hover:border-white pb-1">{t('footer.email')}</a>
-          <a href="https://github.com/skaisstsdev" target="_blank" rel="noreferrer" className="hover:text-white transition-colors border-b border-transparent hover:border-white pb-1">{t('footer.github')}</a>
-          <a href="#" className="hover:text-white transition-colors border-b border-transparent hover:border-white pb-1">{t('footer.linkedin')}</a>
+          <a href="https://github.com" target="_blank" rel="noreferrer" className="hover:text-white transition-colors border-b border-transparent hover:border-white pb-1">{t('footer.github')}</a>
+          <a href="https://t.me/skaissts" target="_blank" rel="noreferrer" className="hover:text-white transition-colors border-b border-transparent hover:border-white pb-1">{t('footer.telegram')}</a>
         </div>
       </footer>
     </div>

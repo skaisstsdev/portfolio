@@ -24,7 +24,7 @@ const resources = {
         title: "Let's Work Together",
         email: "Email",
         github: "GitHub",
-        linkedin: "LinkedIn"
+        telegram: "Telegram"
       },
       projects: {
         visit: "Visit Live Site",
@@ -103,7 +103,7 @@ const resources = {
         title: "Lassen Sie uns zusammenarbeiten",
         email: "E-Mail",
         github: "GitHub",
-        linkedin: "LinkedIn"
+        telegram: "Telegram"
       },
       projects: {
         visit: "Zur Live-Website",
