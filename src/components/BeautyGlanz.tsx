@@ -82,7 +82,7 @@ export default function BeautyGlanz() {
   ];
 
   return (
-    <section className="relative w-full py-24 bg-transparent border-t border-white/5">
+    <section className="relative w-full py-24 bg-transparent">
       <div className="container mx-auto px-6">
         
         {/* Container Scroll with Title and Gallery */}

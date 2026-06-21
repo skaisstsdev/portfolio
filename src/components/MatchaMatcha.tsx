@@ -83,7 +83,7 @@ export default function MatchaMatcha() {
   ];
 
   return (
-    <section className="relative w-full py-24 bg-transparent border-t border-white/5 pb-48">
+    <section className="relative w-full py-24 bg-transparent pb-48">
       <div className="container mx-auto px-6">
         
         {/* Container Scroll with Title and Gallery */}
