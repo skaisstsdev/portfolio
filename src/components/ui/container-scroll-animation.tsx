@@ -14,11 +14,24 @@ export const ContainerScroll = ({
     offset: ["start end", "end center"],
   });
 
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => {
+      window.removeEventListener("resize", checkMobile);
+    };
+  }, []);
+
   const scaleDimensions = () => {
     return [1.05, 1];
   };
 
-  const rotate = useTransform(scrollYProgress, [0, 1], [20, 0]);
+  const rotate = useTransform(scrollYProgress, [0, 1], [isMobile ? 40 : 20, 0]);
   const scale = useTransform(scrollYProgress, [0, 1], scaleDimensions());
   const translate = useTransform(scrollYProgress, [0, 1], [0, -100]);
 
@@ -28,7 +41,7 @@ export const ContainerScroll = ({
       ref={containerRef}
     >
       <div
-        className="w-full relative pt-12 md:pt-24"
+        className="w-full relative pt-4 md:pt-24"
         style={{
           perspective: "1000px",
         }}
@@ -73,7 +86,7 @@ export const Card = ({
         boxShadow:
           "0 0 #0000004d, 0 9px 20px #0000004a, 0 37px 37px #00000042, 0 84px 50px #00000026, 0 149px 60px #0000000a, 0 233px 65px #00000003",
       }}
-      className="max-w-5xl mt-8 mx-auto w-full border border-white/10 p-2 md:p-6 bg-black/60 backdrop-blur-xl rounded-[1rem] md:rounded-[30px] shadow-2xl"
+      className="max-w-5xl mt-2 md:mt-8 mx-auto w-full border border-white/10 p-2 md:p-6 bg-black/60 backdrop-blur-xl rounded-[1rem] md:rounded-[30px] shadow-2xl"
     >
       <div 
         className="w-full aspect-[16/10] overflow-hidden rounded-lg md:rounded-2xl bg-black/50"
