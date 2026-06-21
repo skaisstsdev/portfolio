@@ -4,9 +4,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { InfiniteGallery } from './ui/3d-gallery-photography';
 import { LaptopFrame, MobileFrame } from './ui/DeviceFrames';
 import { ContainerScroll } from './ui/container-scroll-animation';
+import { useTranslation } from 'react-i18next';
 
 export default function MatchaMatcha() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const { t } = useTranslation();
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
   const [device, setDevice] = useState<'desktop' | 'mobile'>('desktop');
   const [currentDesktopIndex, setCurrentDesktopIndex] = useState(0);
   const [currentMobileIndex, setCurrentMobileIndex] = useState(0);
@@ -72,16 +74,16 @@ export default function MatchaMatcha() {
 
   const sections = [
     {
-      title: "Design & Vision",
-      content: "Built entirely from scratch with a mobile-first approach, the project focuses on presenting the brand identity and menu through a striking, highly interactive visual experience that demonstrates cutting-edge web design capabilities."
+      title: t('matcha.acc1_title'),
+      content: t('matcha.acc1_content')
     },
     {
-      title: "Interactive Features",
-      content: "The single-page architecture incorporates custom visual experiences and interactive animations to engage users, providing a seamless flow through the brand story, product information, and menu variations."
+      title: t('matcha.acc2_title'),
+      content: t('matcha.acc2_content')
     },
     {
-      title: "Advanced Technologies",
-      content: "The frontend leverages React and Vite, enriched with sophisticated animations powered by GSAP and React Spring. Custom 3D elements are seamlessly integrated using React Three Fiber and Three.js, alongside an i18n localization system."
+      title: t('matcha.acc3_title'),
+      content: t('matcha.acc3_content')
     }
   ];
 
@@ -94,10 +96,10 @@ export default function MatchaMatcha() {
           titleComponent={
             <>
               <h2 className="text-5xl md:text-8xl font-light uppercase tracking-widest text-white">
-                Matcha Matcha
+                {t('matcha.title')}
               </h2>
               <p className="mt-4 text-white/60 uppercase tracking-widest text-sm md:text-base">
-                Specialty Cafe Concept
+                {t('matcha.subtitle')}
               </p>
             </>
           }
@@ -110,15 +112,15 @@ export default function MatchaMatcha() {
         {/* Project Details & Link */}
         <div className="mt-12 md:mt-24 max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-16 bg-black/60 backdrop-blur-xl p-8 rounded-3xl border border-white/5">
           <p className="text-lg md:text-xl font-light leading-relaxed text-white/80 max-w-2xl">
-            A vibrant, independent concept project created for an existing food and beverage brand in Germany. The platform is designed to showcase strong branding, modern aesthetics, and highly interactive visual experiences.
+            {t('matcha.desc')}
           </p>
           <a 
-            href="https://www.matchamatcha.site" 
+            href="https://www.matchamatcha.de" 
             target="_blank" 
             rel="noreferrer"
             className="group flex items-center gap-4 px-8 py-4 border border-white/20 rounded-full hover:bg-white hover:text-black transition-all duration-300 whitespace-nowrap uppercase tracking-widest text-xs"
           >
-            Visit Live Site
+            {t('projects.visit')}
             <ExternalLink size={16} className="group-hover:rotate-45 transition-transform" />
           </a>
         </div>
@@ -126,20 +128,20 @@ export default function MatchaMatcha() {
         {/* Bento Grid Info */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-16">
           <div className="p-6 border border-white/5 rounded-2xl bg-black/60 backdrop-blur-xl">
-            <h4 className="text-xs uppercase tracking-widest text-white/40 mb-2">Role</h4>
-            <p className="font-light">Designer & Dev</p>
+            <h4 className="text-xs uppercase tracking-widest text-white/40 mb-2">{t('projects.role')}</h4>
+            <p className="font-light">{t('matcha.role_val')}</p>
           </div>
           <div className="p-6 border border-white/5 rounded-2xl bg-black/60 backdrop-blur-xl">
-            <h4 className="text-xs uppercase tracking-widest text-white/40 mb-2">Type</h4>
-            <p className="font-light">Concept Project</p>
+            <h4 className="text-xs uppercase tracking-widest text-white/40 mb-2">{t('projects.type')}</h4>
+            <p className="font-light">{t('matcha.type_val')}</p>
           </div>
           <div className="p-6 border border-white/5 rounded-2xl bg-black/60 backdrop-blur-xl">
-            <h4 className="text-xs uppercase tracking-widest text-white/40 mb-2">Industry</h4>
-            <p className="font-light">Food & Beverage</p>
+            <h4 className="text-xs uppercase tracking-widest text-white/40 mb-2">{t('projects.industry')}</h4>
+            <p className="font-light">{t('matcha.industry_val')}</p>
           </div>
           <div className="p-6 border border-white/5 rounded-2xl bg-black/60 backdrop-blur-xl">
-            <h4 className="text-xs uppercase tracking-widest text-white/40 mb-2">Stack</h4>
-            <p className="font-light">React, Three.js, i18n</p>
+            <h4 className="text-xs uppercase tracking-widest text-white/40 mb-2">{t('projects.stack')}</h4>
+            <p className="font-light">{t('matcha.stack_val')}</p>
           </div>
         </div>
 

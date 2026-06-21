@@ -4,8 +4,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { InfiniteGallery } from './ui/3d-gallery-photography';
 import { LaptopFrame, MobileFrame } from './ui/DeviceFrames';
 import { ContainerScroll } from './ui/container-scroll-animation';
+import { useTranslation } from 'react-i18next';
 
 export default function KSKFarmos() {
+  const { t } = useTranslation();
   const [openIndex, setOpenIndex] = useState<number | null>(0);
   const [device, setDevice] = useState<'desktop' | 'mobile'>('desktop');
   const [currentDesktopIndex, setCurrentDesktopIndex] = useState(0);
@@ -79,16 +81,16 @@ export default function KSKFarmos() {
 
   const sections = [
     {
-      title: "The Challenge",
-      content: "The company operated with an outdated website that suffered from poor user experience and difficult navigation. It failed to effectively attract new clients or recruit employees, necessitating a complete overhaul to build a strong, trustworthy online presence."
+      title: t('ksk.acc1_title'),
+      content: t('ksk.acc1_content')
     },
     {
-      title: "Key Features",
-      content: "The new platform includes an Administrative Dashboard for HR to manage the recruitment workflow (accept/reject candidates), a custom AI Assistant trained on company data to answer queries in 10 languages, and seamless multilingual support."
+      title: t('ksk.acc2_title'),
+      content: t('ksk.acc2_content')
     },
     {
-      title: "Technical Architecture",
-      content: "Built using a robust stack featuring HTML/CSS/JS on the frontend, powered by Supabase for database operations, the OpenAI API for the intelligent assistant, and EmailJS for automated notifications."
+      title: t('ksk.acc3_title'),
+      content: t('ksk.acc3_content')
     }
   ];
 
@@ -101,10 +103,10 @@ export default function KSKFarmos() {
           titleComponent={
             <>
               <h2 className="text-5xl md:text-8xl font-light uppercase tracking-widest text-white">
-                KSK Farmos
+                {t('ksk.title')}
               </h2>
               <p className="mt-4 text-white/60 uppercase tracking-widest text-sm md:text-base">
-                Elderly Care Services
+                {t('ksk.subtitle')}
               </p>
             </>
           }
@@ -117,7 +119,7 @@ export default function KSKFarmos() {
         {/* Project Details & Link */}
         <div className="mt-12 md:mt-24 max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-16 bg-black/60 backdrop-blur-xl p-8 rounded-3xl border border-white/5">
           <p className="text-lg md:text-xl font-light leading-relaxed text-white/80 max-w-2xl">
-            A complete digital transformation for a German elderly care provider with over 13 years of history. The project involved a full redesign to establish a modern visual identity, improve lead generation, and streamline employee recruitment through an advanced digital platform.
+            {t('ksk.desc')}
           </p>
           <a 
             href="https://www.ksk-farmos.de" 
@@ -125,7 +127,7 @@ export default function KSKFarmos() {
             rel="noreferrer"
             className="group flex items-center gap-4 px-8 py-4 border border-white/20 rounded-full hover:bg-white hover:text-black transition-all duration-300 whitespace-nowrap uppercase tracking-widest text-xs"
           >
-            Visit Live Site
+            {t('projects.visit')}
             <ExternalLink size={16} className="group-hover:rotate-45 transition-transform" />
           </a>
         </div>
@@ -133,20 +135,20 @@ export default function KSKFarmos() {
         {/* Bento Grid Info */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-16">
           <div className="p-6 border border-white/5 rounded-2xl bg-black/60 backdrop-blur-xl">
-            <h4 className="text-xs uppercase tracking-widest text-white/40 mb-2">Role</h4>
-            <p className="font-light">Designer & Dev</p>
+            <h4 className="text-xs uppercase tracking-widest text-white/40 mb-2">{t('projects.role')}</h4>
+            <p className="font-light">{t('ksk.role_val')}</p>
           </div>
           <div className="p-6 border border-white/5 rounded-2xl bg-black/60 backdrop-blur-xl">
-            <h4 className="text-xs uppercase tracking-widest text-white/40 mb-2">Type</h4>
-            <p className="font-light">B2B & B2C Platform</p>
+            <h4 className="text-xs uppercase tracking-widest text-white/40 mb-2">{t('projects.type')}</h4>
+            <p className="font-light">{t('ksk.type_val')}</p>
           </div>
           <div className="p-6 border border-white/5 rounded-2xl bg-black/60 backdrop-blur-xl">
-            <h4 className="text-xs uppercase tracking-widest text-white/40 mb-2">Industry</h4>
-            <p className="font-light">Elderly Care</p>
+            <h4 className="text-xs uppercase tracking-widest text-white/40 mb-2">{t('projects.industry')}</h4>
+            <p className="font-light">{t('ksk.industry_val')}</p>
           </div>
           <div className="p-6 border border-white/5 rounded-2xl bg-black/60 backdrop-blur-xl">
-            <h4 className="text-xs uppercase tracking-widest text-white/40 mb-2">Stack</h4>
-            <p className="font-light">HTML, CSS, JS, i18n</p>
+            <h4 className="text-xs uppercase tracking-widest text-white/40 mb-2">{t('projects.stack')}</h4>
+            <p className="font-light">{t('ksk.stack_val')}</p>
           </div>
         </div>
 

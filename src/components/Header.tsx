@@ -1,10 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Globe } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 export default function Header() {
+  const { t, i18n } = useTranslation();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const toggleLanguage = () => {
+    const nextLang = i18n.language === 'en' ? 'de' : 'en';
+    i18n.changeLanguage(nextLang);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,9 +22,9 @@ export default function Header() {
   }, []);
 
   const navLinks = [
-    { name: 'About', href: '#about' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Contact', href: '#contact' }
+    { name: t('header.about'), href: '#about' },
+    { name: t('header.projects'), href: '#projects' },
+    { name: t('header.contact'), href: '#contact' }
   ];
 
   return (
@@ -32,15 +39,24 @@ export default function Header() {
           {navLinks.map((link) => (
             <a key={link.name} href={link.href} className="hover:text-white transition-colors">{link.name}</a>
           ))}
+          <button onClick={toggleLanguage} className="flex items-center gap-2 hover:text-white transition-colors ml-4">
+            <Globe size={16} />
+            {i18n.language === 'en' ? 'EN' : 'DE'}
+          </button>
         </nav>
 
-        {/* Mobile Toggle */}
-        <button 
-          className="md:hidden relative z-50 text-white/80 hover:text-white"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        {/* Mobile Controls */}
+        <div className="md:hidden flex items-center gap-6 relative z-50">
+          <button onClick={toggleLanguage} className="text-white/60 hover:text-white transition-colors text-sm font-light tracking-widest">
+            {i18n.language === 'en' ? 'EN' : 'DE'}
+          </button>
+          <button 
+            className="text-white/80 hover:text-white"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu Overlay */}

@@ -4,9 +4,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { InfiniteGallery } from './ui/3d-gallery-photography';
 import { LaptopFrame, MobileFrame } from './ui/DeviceFrames';
 import { ContainerScroll } from './ui/container-scroll-animation';
+import { useTranslation } from 'react-i18next';
 
 export default function BeautyGlanz() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const { t } = useTranslation();
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
   const [device, setDevice] = useState<'desktop' | 'mobile'>('desktop');
   const [currentDesktopIndex, setCurrentDesktopIndex] = useState(0);
   const [currentMobileIndex, setCurrentMobileIndex] = useState(0);
@@ -69,16 +71,16 @@ export default function BeautyGlanz() {
 
   const sections = [
     {
-      title: "Project Background",
-      content: "As a business previously without a website, the primary goal was to create an elegant, trustworthy, and accessible digital platform. The design focuses on a soft visual style and modern presentation to reflect the premium nature of the salon."
+      title: t('beauty.acc1_title'),
+      content: t('beauty.acc1_content')
     },
     {
-      title: "Booking & Administration",
-      content: "Features a comprehensive online booking system with automated email notifications and calendar management. An intuitive administrative dashboard empowers the salon owner to easily manage appointments, edit content, and oversee operations."
+      title: t('beauty.acc2_title'),
+      content: t('beauty.acc2_content')
     },
     {
-      title: "Technical Stack",
-      content: "Developed using HTML, CSS, and JavaScript for a highly responsive frontend, seamlessly integrated with Supabase for robust database management and EmailJS for reliable customer communications."
+      title: t('beauty.acc3_title'),
+      content: t('beauty.acc3_content')
     }
   ];
 
@@ -91,10 +93,10 @@ export default function BeautyGlanz() {
           titleComponent={
             <>
               <h2 className="text-5xl md:text-8xl font-light uppercase tracking-widest text-white">
-                Beauty Glanz
+                {t('beauty.title')}
               </h2>
               <p className="mt-4 text-white/60 uppercase tracking-widest text-sm md:text-base">
-                Premium Beauty Salon
+                {t('beauty.subtitle')}
               </p>
             </>
           }
@@ -107,7 +109,7 @@ export default function BeautyGlanz() {
         {/* Project Details & Link */}
         <div className="mt-12 md:mt-24 max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-16 bg-black/60 backdrop-blur-xl p-8 rounded-3xl border border-white/5">
           <p className="text-lg md:text-xl font-light leading-relaxed text-white/80 max-w-2xl">
-            A high-end, elegant single-page booking system and administrative platform designed from scratch for a beauty salon in Germany, establishing their first professional online presence to acquire customers and manage appointments.
+            {t('beauty.desc')}
           </p>
           <a 
             href="https://www.beautyglanz.de" 
@@ -115,7 +117,7 @@ export default function BeautyGlanz() {
             rel="noreferrer"
             className="group flex items-center gap-4 px-8 py-4 border border-white/20 rounded-full hover:bg-white hover:text-black transition-all duration-300 whitespace-nowrap uppercase tracking-widest text-xs"
           >
-            Visit Live Site
+            {t('projects.visit')}
             <ExternalLink size={16} className="group-hover:rotate-45 transition-transform" />
           </a>
         </div>
@@ -123,20 +125,20 @@ export default function BeautyGlanz() {
         {/* Bento Grid Info */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-16">
           <div className="p-6 border border-white/5 rounded-2xl bg-black/60 backdrop-blur-xl">
-            <h4 className="text-xs uppercase tracking-widest text-white/40 mb-2">Role</h4>
-            <p className="font-light">Designer & Dev</p>
+            <h4 className="text-xs uppercase tracking-widest text-white/40 mb-2">{t('projects.role')}</h4>
+            <p className="font-light">{t('beauty.role_val')}</p>
           </div>
           <div className="p-6 border border-white/5 rounded-2xl bg-black/60 backdrop-blur-xl">
-            <h4 className="text-xs uppercase tracking-widest text-white/40 mb-2">Audience</h4>
-            <p className="font-light">Beauty Customers</p>
+            <h4 className="text-xs uppercase tracking-widest text-white/40 mb-2">{t('projects.audience')}</h4>
+            <p className="font-light">{t('beauty.audience_val')}</p>
           </div>
           <div className="p-6 border border-white/5 rounded-2xl bg-black/60 backdrop-blur-xl">
-            <h4 className="text-xs uppercase tracking-widest text-white/40 mb-2">Industry</h4>
-            <p className="font-light">Beauty Salon</p>
+            <h4 className="text-xs uppercase tracking-widest text-white/40 mb-2">{t('projects.industry')}</h4>
+            <p className="font-light">{t('beauty.industry_val')}</p>
           </div>
           <div className="p-6 border border-white/5 rounded-2xl bg-black/60 backdrop-blur-xl">
-            <h4 className="text-xs uppercase tracking-widest text-white/40 mb-2">Stack</h4>
-            <p className="font-light">HTML, CSS, JS, i18n</p>
+            <h4 className="text-xs uppercase tracking-widest text-white/40 mb-2">{t('projects.stack')}</h4>
+            <p className="font-light">{t('beauty.stack_val')}</p>
           </div>
         </div>
 
