@@ -1,0 +1,359 @@
+{\rtf1\ansi\ansicpg1251\cocoartf2761
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 You are given a task to integrate an existing React component in the codebase\
+\
+The codebase should support:\
+- shadcn project structure  \
+- Tailwind CSS\
+- Typescript\
+\
+If it doesn't, provide instructions on how to setup project via shadcn CLI, install Tailwind or Typescript.\
+\
+Determine the default path for components and styles. \
+If default path for components is not /components/ui, provide instructions on why it's important to create this folder\
+Copy-paste this component to /components/ui folder:\
+```tsx\
+underline-animation.tsx\
+'use client'\
+\
+import React, \{ useEffect, useRef, useState \} from "react"\
+import \{ motion, useAnimationControls, ValueAnimationTransition \} from "framer-motion"\
+import \{ cn \} from "@/lib/utils"\
+\
+interface UnderlineBaseProps \{\
+  label: string\
+  className?: string\
+  onClick?: () => void\
+  underlineHeightRatio?: number\
+  underlinePaddingRatio?: number\
+  transition?: ValueAnimationTransition\
+\}\
+\
+interface DirectionalUnderlineProps extends UnderlineBaseProps \{\
+  direction?: "left" | "right"\
+\}\
+\
+// Center Underline\
+export function CenterUnderline(\{\
+  label,\
+  className,\
+  onClick,\
+  transition = \{ duration: 0.25, ease: "easeInOut" \},\
+  underlineHeightRatio = 0.1,\
+  underlinePaddingRatio = 0.01,\
+  ...props\
+\}: UnderlineBaseProps) \{\
+  const textRef = useRef<HTMLSpanElement>(null)\
+\
+  useEffect(() => \{\
+    const updateUnderlineStyles = () => \{\
+      if (textRef.current) \{\
+        const fontSize = parseFloat(getComputedStyle(textRef.current).fontSize)\
+        const underlineHeight = fontSize * underlineHeightRatio\
+        const underlinePadding = fontSize * underlinePaddingRatio\
+        textRef.current.style.setProperty(\
+          "--underline-height",\
+          `$\{underlineHeight\}px`\
+        )\
+        textRef.current.style.setProperty(\
+          "--underline-padding",\
+          `$\{underlinePadding\}px`\
+        )\
+      \}\
+    \}\
+\
+    updateUnderlineStyles()\
+    window.addEventListener("resize", updateUnderlineStyles)\
+\
+    return () => window.removeEventListener("resize", updateUnderlineStyles)\
+  \}, [underlineHeightRatio, underlinePaddingRatio])\
+\
+  return (\
+    <motion.span\
+      className=\{cn("relative inline-block cursor-pointer", className)\}\
+      whileHover="visible"\
+      onClick=\{onClick\}\
+      ref=\{textRef\}\
+      \{...props\}\
+    >\
+      <span>\{label\}</span>\
+      <motion.div\
+        className="absolute left-1/2 bg-current -translate-x-1/2"\
+        style=\{\{\
+          height: "var(--underline-height)",\
+          bottom: "calc(-1 * var(--underline-padding))",\
+        \}\}\
+        variants=\{\{\
+          hidden: \{\
+            width: 0,\
+            originX: 0.5,\
+          \},\
+          visible: \{\
+            width: "100%",\
+            transition: transition,\
+          \},\
+        \}\}\
+      />\
+    </motion.span>\
+  )\
+\}\
+\
+// Comes In Goes Out Underline\
+export function ComesInGoesOutUnderline(\{\
+  label,\
+  direction = "left",\
+  className,\
+  onClick,\
+  underlineHeightRatio = 0.1,\
+  underlinePaddingRatio = 0.01,\
+  transition = \{\
+    duration: 0.4,\
+    ease: "easeInOut",\
+  \},\
+  ...props\
+\}: DirectionalUnderlineProps) \{\
+  const controls = useAnimationControls()\
+  const [blocked, setBlocked] = useState(false)\
+  const textRef = useRef<HTMLSpanElement>(null)\
+\
+  useEffect(() => \{\
+    const updateUnderlineStyles = () => \{\
+      if (textRef.current) \{\
+        const fontSize = parseFloat(getComputedStyle(textRef.current).fontSize)\
+        const underlineHeight = fontSize * underlineHeightRatio\
+        const underlinePadding = fontSize * underlinePaddingRatio\
+        textRef.current.style.setProperty(\
+          "--underline-height",\
+          `$\{underlineHeight\}px`\
+        )\
+        textRef.current.style.setProperty(\
+          "--underline-padding",\
+          `$\{underlinePadding\}px`\
+        )\
+      \}\
+    \}\
+\
+    updateUnderlineStyles()\
+    window.addEventListener("resize", updateUnderlineStyles)\
+\
+    return () => window.removeEventListener("resize", updateUnderlineStyles)\
+  \}, [underlineHeightRatio, underlinePaddingRatio])\
+\
+  const animate = async () => \{\
+    if (blocked) return\
+\
+    setBlocked(true)\
+\
+    await controls.start(\{\
+      width: "100%",\
+      transition,\
+      transitionEnd: \{\
+        left: direction === "left" ? "auto" : 0,\
+        right: direction === "left" ? 0 : "auto",\
+      \},\
+    \})\
+\
+    await controls.start(\{\
+      width: 0,\
+      transition,\
+      transitionEnd: \{\
+        left: direction === "left" ? 0 : "",\
+        right: direction === "left" ? "" : 0,\
+      \},\
+    \})\
+\
+    setBlocked(false)\
+  \}\
+\
+  return (\
+    <motion.span\
+      className=\{cn("relative inline-block cursor-pointer", className)\}\
+      onHoverStart=\{animate\}\
+      onClick=\{onClick\}\
+      ref=\{textRef\}\
+      \{...props\}\
+    >\
+      <span>\{label\}</span>\
+      <motion.span\
+        className=\{cn("absolute bg-current w-0", \{\
+          "left-0": direction === "left",\
+          "right-0": direction === "right",\
+        \})\}\
+        style=\{\{\
+          height: "var(--underline-height)",\
+          bottom: "calc(-1 * var(--underline-padding))",\
+        \}\}\
+        animate=\{controls\}\
+      />\
+    </motion.span>\
+  )\
+\}\
+\
+// Goes Out Comes In Underline\
+export function GoesOutComesInUnderline(\{\
+  label,\
+  direction = "left",\
+  className,\
+  onClick,\
+  underlineHeightRatio = 0.1,\
+  underlinePaddingRatio = 0.01,\
+  transition = \{\
+    duration: 0.5,\
+    ease: "easeOut",\
+  \},\
+  ...props\
+\}: DirectionalUnderlineProps) \{\
+  const controls = useAnimationControls()\
+  const [blocked, setBlocked] = useState(false)\
+  const textRef = useRef<HTMLSpanElement>(null)\
+\
+  useEffect(() => \{\
+    const updateUnderlineStyles = () => \{\
+      if (textRef.current) \{\
+        const fontSize = parseFloat(getComputedStyle(textRef.current).fontSize)\
+        const underlineHeight = fontSize * underlineHeightRatio\
+        const underlinePadding = fontSize * underlinePaddingRatio\
+        textRef.current.style.setProperty(\
+          "--underline-height",\
+          `$\{underlineHeight\}px`\
+        )\
+        textRef.current.style.setProperty(\
+          "--underline-padding",\
+          `$\{underlinePadding\}px`\
+        )\
+      \}\
+    \}\
+\
+    updateUnderlineStyles()\
+    window.addEventListener("resize", updateUnderlineStyles)\
+\
+    return () => window.removeEventListener("resize", updateUnderlineStyles)\
+  \}, [underlineHeightRatio, underlinePaddingRatio])\
+\
+  const animate = async () => \{\
+    if (blocked) return\
+\
+    setBlocked(true)\
+\
+    await controls.start(\{\
+      width: 0,\
+      transition,\
+      transitionEnd: \{\
+        left: direction === "left" ? "auto" : 0,\
+        right: direction === "left" ? 0 : "auto",\
+      \},\
+    \})\
+\
+    await controls.start(\{\
+      width: "100%",\
+      transition,\
+      transitionEnd: \{\
+        left: direction === "left" ? 0 : "",\
+        right: direction === "left" ? "" : 0,\
+      \},\
+    \})\
+\
+    setBlocked(false)\
+  \}\
+\
+  return (\
+    <motion.span\
+      className=\{cn("relative inline-block cursor-pointer", className)\}\
+      onHoverStart=\{animate\}\
+      onClick=\{onClick\}\
+      ref=\{textRef\}\
+      \{...props\}\
+    >\
+      <span className="sr-only">\{label\}</span>\
+      <span aria-hidden="true">\{label\}</span>\
+      <motion.span\
+        className=\{cn("absolute bg-current", \{\
+          "left-0": direction === "left",\
+          "right-0": direction === "right",\
+        \})\}\
+        style=\{\{\
+          height: "var(--underline-height)",\
+          bottom: "calc(-1 * var(--underline-padding))",\
+          width: "100%",\
+        \}\}\
+        animate=\{controls\}\
+        aria-hidden="true"\
+      />\
+    </motion.span>\
+  )\
+\}\
+\
+demo.tsx\
+'use client'\
+\
+import Link from "next/link"\
+import \{ CenterUnderline, ComesInGoesOutUnderline, GoesOutComesInUnderline \} from "@/components/ui/underline-animation"\
+\
+function UnderlineDemo() \{\
+  return (\
+    <div className="w-full h-full flex flex-col items-center justify-center bg-background">\
+      <div className="flex flex-row font-overusedGrotesk items-start text-[#0015ff] h-full py-36 uppercase space-x-8 text-sm sm:text-xl md:text-2xl lg:text-3xl">\
+        <div>Contact</div>\
+        <ul className="flex flex-col space-y-1 h-full">\
+          <Link href="#">\
+            <CenterUnderline label="LINKEDIN" />\
+          </Link>\
+          <Link href="#">\
+            <ComesInGoesOutUnderline label="INSTAGRAM" direction="right" />\
+          </Link>\
+          <Link href="#">\
+            <ComesInGoesOutUnderline label="X (TWITTER)" direction="left" />\
+          </Link>\
+\
+          <div className="pt-12">\
+            <ul className="flex flex-col space-y-1 h-full">\
+              <Link href="#">\
+                <GoesOutComesInUnderline\
+                  label="FANCY@FANCY.DEV"\
+                  direction="left"\
+                />\
+              </Link>\
+              <Link href="#">\
+                <GoesOutComesInUnderline\
+                  label="HELLO@FANCY.DEV"\
+                  direction="right"\
+                />\
+              </Link>\
+            </ul>\
+          </div>\
+        </ul>\
+      </div>\
+    </div>\
+  )\
+\}\
+\
+export \{ UnderlineDemo \}\
+```\
+\
+Install NPM dependencies:\
+```bash\
+framer-motion\
+```\
+\
+Implementation Guidelines\
+ 1. Analyze the component structure and identify all required dependencies\
+ 2. Review the component's argumens and state\
+ 3. Identify any required context providers or hooks and install them\
+ 4. Questions to Ask\
+ - What data/props will be passed to this component?\
+ - Are there any specific state management requirements?\
+ - Are there any required assets (images, icons, etc.)?\
+ - What is the expected responsive behavior?\
+ - What is the best place to use this component in the app?\
+\
+Steps to integrate\
+ 0. Copy paste all the code above in the correct directories\
+ 1. Install external dependencies\
+ 2. Fill image assets with Unsplash stock images you know exist\
+ 3. Use lucide-react icons for svgs or logos if component requires them\
+}
