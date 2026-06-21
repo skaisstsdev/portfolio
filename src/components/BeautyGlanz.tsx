@@ -30,28 +30,18 @@ export default function BeautyGlanz() {
   }, [device]);
 
   const desktopImages = [
-    "/img/beuatyglanz/desktop/1_main_page_hero.webp",
-    "/img/beuatyglanz/desktop/2_main_page.webp",
-    "/img/beuatyglanz/desktop/3_services.webp",
-    "/img/beuatyglanz/desktop/4_contacts.webp",
-    "/img/beuatyglanz/desktop/5_admin.webp",
-    "/img/beuatyglanz/desktop/6_admin.webp",
-    "/img/beuatyglanz/desktop/7_admin.webp",
-    "/img/beuatyglanz/desktop/8_admin.webp"
+    "/img/beuatyglanz/desktop/1_main_page_hero.png",
+    "/img/beuatyglanz/desktop/2_main_page.png",
+    "/img/beuatyglanz/desktop/3_services.png",
+    "/img/beuatyglanz/desktop/4_contacts.png"
   ];
 
   const mobileImages = [
-    "/img/beuatyglanz/mobile/1_main_page_hero.webp",
-    "/img/beuatyglanz/mobile/2_main_page.webp",
-    "/img/beuatyglanz/mobile/3_services.webp",
-    "/img/beuatyglanz/mobile/4_termin.webp",
-    "/img/beuatyglanz/mobile/5_termin.webp",
-    "/img/beuatyglanz/mobile/6_termin.webp",
-    "/img/beuatyglanz/mobile/7_admin.webp",
-    "/img/beuatyglanz/mobile/8_admin.webp",
-    "/img/beuatyglanz/mobile/9_admin.webp",
-    "/img/beuatyglanz/mobile/10_admin.webp",
-    "/img/beuatyglanz/mobile/11_admin.webp"
+    "/img/beuatyglanz/mobile/1_main_page_hero.jpg",
+    "/img/beuatyglanz/mobile/2_main_page.jpg",
+    "/img/beuatyglanz/mobile/3_services.jpg",
+    "/img/beuatyglanz/mobile/5_termin.jpg",
+    "/img/beuatyglanz/mobile/6_termin.jpg"
   ];
 
   const galleryImages = [
