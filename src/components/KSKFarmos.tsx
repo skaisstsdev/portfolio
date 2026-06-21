@@ -20,8 +20,12 @@ export default function KSKFarmos() {
       return;
     }
     
-    if (window.innerWidth < 768 && showcaseRef.current) {
-      showcaseRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    if (window.innerWidth < 768) {
+      setTimeout(() => {
+        if (showcaseRef.current) {
+          showcaseRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }, 350);
     }
   }, [device]);
 

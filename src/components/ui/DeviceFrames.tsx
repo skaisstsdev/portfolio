@@ -4,7 +4,7 @@ export const LaptopFrame = ({ children }: { children: ReactNode }) => {
   return (
     <div className="relative mx-auto w-full max-w-5xl px-4 md:px-0">
       {/* Screen */}
-      <div className="relative border-[#111] border-[10px] md:border-[16px] rounded-xl md:rounded-t-3xl md:rounded-b-none overflow-hidden bg-black aspect-[16/10] shadow-2xl">
+      <div className="relative border-[#111] border-[4px] md:border-[16px] rounded-lg md:rounded-t-3xl md:rounded-b-none overflow-hidden bg-black aspect-[16/10] shadow-2xl">
         <div className="absolute inset-0 overflow-y-auto overflow-x-hidden no-scrollbar">
           {children}
         </div>
