@@ -83,7 +83,7 @@ export default function KSKFarmos() {
   ];
 
   return (
-    <section id="projects" className="relative w-full pb-24 bg-transparent pt-12">
+    <section id="projects" className="relative w-full py-32 md:py-40 bg-transparent">
       <div className="container mx-auto px-6">
         
         {/* Container Scroll with Title and Gallery */}
