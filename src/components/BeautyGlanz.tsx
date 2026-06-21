@@ -78,7 +78,7 @@ export default function BeautyGlanz() {
     },
     {
       title: "Technical Stack",
-      content: "Developed using React, JSX, and Vite for a highly responsive frontend, seamlessly integrated with Supabase for robust database management and EmailJS for reliable customer communications."
+      content: "Developed using HTML, CSS, and JavaScript for a highly responsive frontend, seamlessly integrated with Supabase for robust database management and EmailJS for reliable customer communications."
     }
   ];
 
@@ -136,7 +136,7 @@ export default function BeautyGlanz() {
           </div>
           <div className="p-6 border border-white/5 rounded-2xl bg-black/60 backdrop-blur-xl">
             <h4 className="text-xs uppercase tracking-widest text-white/40 mb-2">Stack</h4>
-            <p className="font-light">React, Supabase</p>
+            <p className="font-light">HTML, CSS, JS, i18n</p>
           </div>
         </div>
 

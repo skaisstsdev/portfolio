@@ -146,7 +146,7 @@ export default function KSKFarmos() {
           </div>
           <div className="p-6 border border-white/5 rounded-2xl bg-black/60 backdrop-blur-xl">
             <h4 className="text-xs uppercase tracking-widest text-white/40 mb-2">Stack</h4>
-            <p className="font-light">JS, Supabase, OpenAI</p>
+            <p className="font-light">HTML, CSS, JS, i18n</p>
           </div>
         </div>
 
