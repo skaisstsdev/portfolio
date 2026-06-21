@@ -49,12 +49,12 @@ function App() {
       <Hero />
       <AnimatedDivider />
       <Intro />
-      <AnimatedDivider />
+      <AnimatedDivider reverse />
       <div className="flex flex-col relative z-10">
         <KSKFarmos />
         <AnimatedDivider />
         <BeautyGlanz />
-        <AnimatedDivider />
+        <AnimatedDivider reverse />
         <MatchaMatcha />
       </div>
       
