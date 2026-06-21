@@ -79,16 +79,16 @@ export default function KSKFarmos() {
 
   const sections = [
     {
-      title: "Project Background",
-      content: "KSK Farmos is an international group of companies that organizes and optimizes processes for international brands. They act as general contractors globally, working on the largest luxury brand shops. Their expertise lies in delivering premium quality spaces seamlessly across different continents, ensuring that the brand experience remains consistently luxurious."
+      title: "The Challenge",
+      content: "The company operated with an outdated website that suffered from poor user experience and difficult navigation. It failed to effectively attract new clients or recruit employees, necessitating a complete overhaul to build a strong, trustworthy online presence."
     },
     {
-      title: "Goals & Challenges",
-      content: "The primary goal was to create a digital presence that matched the scale and luxury of their physical projects. KSK Farmos needed a website that could serve as a global portfolio, showcasing their high-end general contracting work while detailing their optimized international processes. The challenge was organizing their extensive portfolio and service offerings into a clean, modern interface that communicates reliability and elite craftsmanship."
+      title: "Key Features",
+      content: "The new platform includes an Administrative Dashboard for HR to manage the recruitment workflow (accept/reject candidates), a custom AI Assistant trained on company data to answer queries in 10 languages, and seamless multilingual support."
     },
     {
-      title: "Features & Architecture",
-      content: "The platform is built around a heavy visual experience, utilizing large, crisp imagery of their finished projects. The architecture supports multi-language capabilities given their global presence. A custom CMS was developed to allow their team to easily upload new project showcases and case studies. Advanced filtering systems allow prospective clients to browse projects by region, brand, or scale, making the vast portfolio easily navigable."
+      title: "Technical Architecture",
+      content: "Built using a robust stack featuring HTML/CSS/JS on the frontend, powered by Supabase for database operations, the OpenAI API for the intelligent assistant, and EmailJS for automated notifications."
     }
   ];
 
@@ -104,7 +104,7 @@ export default function KSKFarmos() {
                 KSK Farmos
               </h2>
               <p className="mt-4 text-white/60 uppercase tracking-widest text-sm md:text-base">
-                International General Contracting
+                Elderly Care Services
               </p>
             </>
           }
@@ -117,7 +117,7 @@ export default function KSKFarmos() {
         {/* Project Details & Link */}
         <div className="mt-12 md:mt-24 max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-16 bg-black/60 backdrop-blur-xl p-8 rounded-3xl border border-white/5">
           <p className="text-lg md:text-xl font-light leading-relaxed text-white/80 max-w-2xl">
-            A comprehensive digital platform for a global general contractor specializing in luxury retail spaces and international brand optimization.
+            A complete digital transformation for a German elderly care provider with over 13 years of history. The project involved a full redesign to establish a modern visual identity, improve lead generation, and streamline employee recruitment through an advanced digital platform.
           </p>
           <a 
             href="https://www.ksk-farmos.de" 
@@ -134,19 +134,19 @@ export default function KSKFarmos() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-16">
           <div className="p-6 border border-white/5 rounded-2xl bg-black/60 backdrop-blur-xl">
             <h4 className="text-xs uppercase tracking-widest text-white/40 mb-2">Role</h4>
-            <p className="font-light">Full-Stack Dev</p>
+            <p className="font-light">Designer & Dev</p>
           </div>
           <div className="p-6 border border-white/5 rounded-2xl bg-black/60 backdrop-blur-xl">
-            <h4 className="text-xs uppercase tracking-widest text-white/40 mb-2">Duration</h4>
-            <p className="font-light">3 Months</p>
+            <h4 className="text-xs uppercase tracking-widest text-white/40 mb-2">Type</h4>
+            <p className="font-light">B2B & B2C Platform</p>
           </div>
           <div className="p-6 border border-white/5 rounded-2xl bg-black/60 backdrop-blur-xl">
             <h4 className="text-xs uppercase tracking-widest text-white/40 mb-2">Industry</h4>
-            <p className="font-light">Construction</p>
+            <p className="font-light">Elderly Care</p>
           </div>
           <div className="p-6 border border-white/5 rounded-2xl bg-black/60 backdrop-blur-xl">
             <h4 className="text-xs uppercase tracking-widest text-white/40 mb-2">Stack</h4>
-            <p className="font-light">Next.js / GSAP</p>
+            <p className="font-light">JS, Supabase, OpenAI</p>
           </div>
         </div>
 

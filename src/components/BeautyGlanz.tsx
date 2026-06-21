@@ -70,15 +70,15 @@ export default function BeautyGlanz() {
   const sections = [
     {
       title: "Project Background",
-      content: "Beauty Glanz is a high-end beauty salon based in Germany. The founder recognized the need to move beyond traditional phone bookings and Instagram DMs to establish a professional, centralized online presence. The project was initiated to consolidate their brand identity, showcase their premium services, and provide an elegant, frictionless booking experience for their upscale clientele."
+      content: "As a business previously without a website, the primary goal was to create an elegant, trustworthy, and accessible digital platform. The design focuses on a soft visual style and modern presentation to reflect the premium nature of the salon."
     },
     {
-      title: "Goals & Challenges",
-      content: "The main goal was to design a single-page application (SPA) that felt both luxurious and incredibly fast. It needed to serve as a digital storefront and a fully functional appointment management platform. The primary challenge was integrating a complex booking logic—handling different services, durations, staff availability, and immediate confirmation emails—without cluttering the user interface or confusing the client."
+      title: "Booking & Administration",
+      content: "Features a comprehensive online booking system with automated email notifications and calendar management. An intuitive administrative dashboard empowers the salon owner to easily manage appointments, edit content, and oversee operations."
     },
     {
-      title: "Features & Architecture",
-      content: "Developed as a single-page application for seamless, instant transitions without reloads. Features a custom booking system with calendar integration and automated email confirmations. A dedicated Admin Panel was built to allow the owner to easily manage appointments, view client histories, and update services. The UI relies heavily on high-quality imagery and a soft, elegant color palette."
+      title: "Technical Stack",
+      content: "Developed using React, JSX, and Vite for a highly responsive frontend, seamlessly integrated with Supabase for robust database management and EmailJS for reliable customer communications."
     }
   ];
 
@@ -94,7 +94,7 @@ export default function BeautyGlanz() {
                 Beauty Glanz
               </h2>
               <p className="mt-4 text-white/60 uppercase tracking-widest text-sm md:text-base">
-                Premium Cleaning Service
+                Premium Beauty Salon
               </p>
             </>
           }
@@ -107,7 +107,7 @@ export default function BeautyGlanz() {
         {/* Project Details & Link */}
         <div className="mt-12 md:mt-24 max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-16 bg-black/60 backdrop-blur-xl p-8 rounded-3xl border border-white/5">
           <p className="text-lg md:text-xl font-light leading-relaxed text-white/80 max-w-2xl">
-            A high-end, elegant single-page booking system designed for a beauty salon in Germany with an integrated appointment management platform.
+            A high-end, elegant single-page booking system and administrative platform designed from scratch for a beauty salon in Germany, establishing their first professional online presence to acquire customers and manage appointments.
           </p>
           <a 
             href="https://www.beautyglanz.de" 
@@ -124,19 +124,19 @@ export default function BeautyGlanz() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-16">
           <div className="p-6 border border-white/5 rounded-2xl bg-black/60 backdrop-blur-xl">
             <h4 className="text-xs uppercase tracking-widest text-white/40 mb-2">Role</h4>
-            <p className="font-light">Design & Dev</p>
+            <p className="font-light">Designer & Dev</p>
           </div>
           <div className="p-6 border border-white/5 rounded-2xl bg-black/60 backdrop-blur-xl">
-            <h4 className="text-xs uppercase tracking-widest text-white/40 mb-2">Duration</h4>
-            <p className="font-light">1.5 Months</p>
+            <h4 className="text-xs uppercase tracking-widest text-white/40 mb-2">Audience</h4>
+            <p className="font-light">Beauty Customers</p>
           </div>
           <div className="p-6 border border-white/5 rounded-2xl bg-black/60 backdrop-blur-xl">
             <h4 className="text-xs uppercase tracking-widest text-white/40 mb-2">Industry</h4>
-            <p className="font-light">Beauty / Wellness</p>
+            <p className="font-light">Beauty Salon</p>
           </div>
           <div className="p-6 border border-white/5 rounded-2xl bg-black/60 backdrop-blur-xl">
             <h4 className="text-xs uppercase tracking-widest text-white/40 mb-2">Stack</h4>
-            <p className="font-light">React / Tailwind</p>
+            <p className="font-light">React, Supabase</p>
           </div>
         </div>
 

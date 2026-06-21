@@ -72,16 +72,16 @@ export default function MatchaMatcha() {
 
   const sections = [
     {
-      title: "Project Background",
-      content: "Matcha Matcha is a specialty cafe chain in Germany with a focus on high-quality, authentic Japanese matcha beverages. They needed a fresh, energetic online platform to showcase their modern menu and highlight their multiple physical locations. The brand blends traditional Japanese tea culture with modern, fast-paced European cafe aesthetics."
+      title: "Design & Vision",
+      content: "Built entirely from scratch with a mobile-first approach, the project focuses on presenting the brand identity and menu through a striking, highly interactive visual experience that demonstrates cutting-edge web design capabilities."
     },
     {
-      title: "Goals & Challenges",
-      content: "The objective was to create a highly visual, fast, and responsive website that accurately reflects the vibrant, green aesthetic of the brand. A major challenge was ensuring that the menu was highly readable and appetizing on mobile devices, as their primary audience consists of on-the-go professionals and students checking the menu from their phones."
+      title: "Interactive Features",
+      content: "The single-page architecture incorporates custom visual experiences and interactive animations to engage users, providing a seamless flow through the brand story, product information, and menu variations."
     },
     {
-      title: "Features & Architecture",
-      content: "Built using modern web technologies to ensure lightning-fast load times. The UI incorporates subtle micro-interactions and scroll animations that make exploring the menu an engaging experience. A dynamic location finder was implemented, and the entire architecture is heavily optimized for SEO and mobile responsiveness."
+      title: "Advanced Technologies",
+      content: "The frontend leverages React and Vite, enriched with sophisticated animations powered by GSAP and React Spring. Custom 3D elements are seamlessly integrated using React Three Fiber and Three.js, alongside an i18n localization system."
     }
   ];
 
@@ -97,7 +97,7 @@ export default function MatchaMatcha() {
                 Matcha Matcha
               </h2>
               <p className="mt-4 text-white/60 uppercase tracking-widest text-sm md:text-base">
-                E-Commerce Store
+                Specialty Cafe Concept
               </p>
             </>
           }
@@ -110,7 +110,7 @@ export default function MatchaMatcha() {
         {/* Project Details & Link */}
         <div className="mt-12 md:mt-24 max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-16 bg-black/60 backdrop-blur-xl p-8 rounded-3xl border border-white/5">
           <p className="text-lg md:text-xl font-light leading-relaxed text-white/80 max-w-2xl">
-            A vibrant, highly visual online platform designed for a modern specialty matcha cafe chain in Germany.
+            A vibrant, independent concept project created for an existing food and beverage brand in Germany. The platform is designed to showcase strong branding, modern aesthetics, and highly interactive visual experiences.
           </p>
           <a 
             href="https://www.matchamatcha.site" 
@@ -127,19 +127,19 @@ export default function MatchaMatcha() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-16">
           <div className="p-6 border border-white/5 rounded-2xl bg-black/60 backdrop-blur-xl">
             <h4 className="text-xs uppercase tracking-widest text-white/40 mb-2">Role</h4>
-            <p className="font-light">Design & Dev</p>
+            <p className="font-light">Designer & Dev</p>
           </div>
           <div className="p-6 border border-white/5 rounded-2xl bg-black/60 backdrop-blur-xl">
-            <h4 className="text-xs uppercase tracking-widest text-white/40 mb-2">Duration</h4>
-            <p className="font-light">2 Months</p>
+            <h4 className="text-xs uppercase tracking-widest text-white/40 mb-2">Type</h4>
+            <p className="font-light">Concept Project</p>
           </div>
           <div className="p-6 border border-white/5 rounded-2xl bg-black/60 backdrop-blur-xl">
             <h4 className="text-xs uppercase tracking-widest text-white/40 mb-2">Industry</h4>
-            <p className="font-light">F&B / Hospitality</p>
+            <p className="font-light">Food & Beverage</p>
           </div>
           <div className="p-6 border border-white/5 rounded-2xl bg-black/60 backdrop-blur-xl">
             <h4 className="text-xs uppercase tracking-widest text-white/40 mb-2">Stack</h4>
-            <p className="font-light">React / Tailwind</p>
+            <p className="font-light">React, GSAP, Three.js</p>
           </div>
         </div>
 
